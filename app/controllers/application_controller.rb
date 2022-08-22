@@ -8,3 +8,4 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid
   end
 
 end
+ 
