@@ -1,0 +1,2 @@
+class CheepsController < ApplicationController
+end
