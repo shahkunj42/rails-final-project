@@ -21,6 +21,9 @@ class User < ApplicationRecord
     validates :password, format: { with: PASSWORD_REQUIREMENTS }, on: :create 
 
    
+  # def feed
+  #     user_feed = self.followees(User).all.map { |user| user.cheeps.map { |cheep| cheep.cheep } }
+  #   end
 
 
 end

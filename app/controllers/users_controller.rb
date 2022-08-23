@@ -16,6 +16,10 @@ class UsersController < ApplicationController
         render json: @current_user
     end
 
+    def feed
+        render json: @current_user.followees(User)
+    end 
+
     private
 
     def user_params
