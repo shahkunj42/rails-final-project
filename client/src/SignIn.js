@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+
 
 function SignIn () {
     const [formState, setFormState] = useState({})
@@ -32,7 +34,7 @@ function SignIn () {
     return(
         <div>
             <h1>Signin</h1>
-            <form onSubmit={handleSubmit} className="form"></form>
+            <Form onSubmit={handleSubmit} className="form">
                 <label htmlFor="username">Username</label>
                 <input onChange={handleFormChange} type="text" id="username" placeholder="username" name="username" ></input>
 
@@ -40,6 +42,8 @@ function SignIn () {
                 <input onChange={handleFormChange} type="password" id="password" placeholder="password" name="password" ></input>
 
                 <button type="submit">Signin</button>
+
+            </Form>
         </div>
 
     )
