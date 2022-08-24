@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+
 
 function SignUp() {
     const [formState, setFormState] = useState({})
@@ -38,7 +40,9 @@ function SignUp() {
     return(
         <div>
             <h1>Create an Account</h1>
-            <form onSubmit={handleSubmit} className="form">
+            
+            <Form onSubmit={handleSubmit}>
+
                 <label htmlFor="username">Username</label>
                 <input onChange={handleFormChange} type="text" id="username" name="username" ></input>
 
@@ -65,7 +69,8 @@ function SignUp() {
 
                 <button type="submit">Submit</button>
 
-            </form>
+                </Form>
+
         </div>
     );
 }
