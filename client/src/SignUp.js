@@ -1,9 +1,12 @@
 import React, {useState} from "react";
-import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
+import {useNavigate} from "react-router-dom";
 
 
-function SignUp() {
+function SignUp({setUser}) {
     const [formState, setFormState] = useState({})
+
+    let navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -26,7 +29,8 @@ function SignUp() {
             body: JSON.stringify(newFormObj),
         })
         .then((r) => r.json())
-        .then((data) => console.log(data))
+        .then((data) => setUser(data))
+        navigate('/homefeed')
     }
     
     const {username, password, profile_image, bio, first_name, last_name, email, password_confirmation} = formState

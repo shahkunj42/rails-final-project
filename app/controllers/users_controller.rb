@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     end
 
     def feed
-        render json: @current_user.followees(User)
+        render json: @current_user.followees(User), status: :ok
     end 
 
     private

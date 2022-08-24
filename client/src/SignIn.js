@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
+import { useNavigate } from 'react-router-dom';
 
 
-function SignIn () {
+function SignIn ({setUser}) {
     const [formState, setFormState] = useState({})
+
+    let navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -20,7 +23,8 @@ function SignIn () {
             body: JSON.stringify(newFormObj),
         })
         .then((r) => r.json())
-        .then((data) => console.log(data))
+        .then((data) => setUser(data))
+        navigate('/homefeed')
     }
     
     const {username, password} = formState
@@ -33,7 +37,7 @@ function SignIn () {
 
     return(
         <div>
-            <h1>Signin</h1>
+            <h1>Sign In</h1>
             <Form onSubmit={handleSubmit} className="form">
                 <label htmlFor="username">Username</label>
                 <input onChange={handleFormChange} type="text" id="username" placeholder="username" name="username" ></input>
