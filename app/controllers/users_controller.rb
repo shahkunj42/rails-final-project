@@ -20,6 +20,10 @@ class UsersController < ApplicationController
         render json: @current_user.followees(User), status: :ok
     end 
 
+    def myCheeps 
+        render json: @current_user.cheeps, status: :ok
+    end 
+
     private
 
     def user_params

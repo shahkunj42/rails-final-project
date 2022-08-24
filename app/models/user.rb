@@ -23,7 +23,7 @@ class User < ApplicationRecord
    
   # def feed
   #     user_feed = self.followees(User).all.map { |user| user.cheeps.map { |cheep| cheep.cheep } }
-  #   end
+  # end
 
 
 end
