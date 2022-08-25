@@ -1,5 +1,4 @@
 import HomeFeedCheepMap from "./HomeFeedCheepMap";
-import {useEffect, useState} from "react"
 
 function HomeFeedMap({cheep, users}) {
     // const [users, setUser] = useState(null)

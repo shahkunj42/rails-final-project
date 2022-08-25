@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function SignIn ({setUser}) {
     const [formState, setFormState] = useState({})
+    const [errors, setErrors] = useState(null)
 
     let navigate = useNavigate();
 
@@ -22,10 +23,14 @@ function SignIn ({setUser}) {
             },
             body: JSON.stringify(newFormObj),
         })
-        .then((r) => r.json())
-        .then((data) => setUser(data))
-        navigate('/homefeed')
-    }
+        .then((r) => {
+        if (r.ok) {
+            r.json().then((data) => setUser(data))
+            .then(navigate('/homefeed'))}
+        else {
+            r.json().then((err) => setErrors(err.errors));
+            }
+        })}  
     
     const {username, password} = formState
 
@@ -48,6 +53,8 @@ function SignIn ({setUser}) {
                 <button type="submit">Signin</button>
 
             </Form>
+
+            <p>{errors ? <h1>{errors}</h1> : null}</p>
         </div>
 
     )

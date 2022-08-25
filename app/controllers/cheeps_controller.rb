@@ -18,7 +18,7 @@ class CheepsController < ApplicationController
     private 
 
     def cheep_params 
-        params.permit(:cheep, :likes)
+        params.permit(:cheep, :likers_count)
     end
 
 end

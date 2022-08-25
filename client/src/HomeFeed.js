@@ -22,18 +22,12 @@ function HomeFeed({user, users, myCheeps}) {
     let cheepArray = []
 
     if (homeFeedMap.length > 1) {
-    for (let i = 0; i < (homeFeedMap.length - 1); i++) {
-        cheepArray = homeFeedMap[i].concat(homeFeedMap[i+1])
+    for (let i = 0; i < (homeFeedMap.length); i++) {
+        cheepArray = cheepArray.concat(homeFeedMap[i])
     }}
     else {
         cheepArray = homeFeedMap
     }
-    
-    console.log(cheepArray)
-    console.log(myCheeps)
-    console.log(homeFeedMap)
-    console.log(homeFeedMap.length)
-    console.log(homeFeed)
 
     const forSorting = cheepArray.concat(myCheeps)
 

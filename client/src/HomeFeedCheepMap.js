@@ -14,12 +14,14 @@ function HomeFeedCheepMap({cheep, user}) {
         }).then(r => r.json())
         .then(data => setCount(data.likers_count));
     }
-    
+
 
     return (
         <Feed>
             <Feed.Event>
-                <Feed.Label image={user.profile_image} />
+                <Feed.Label>
+                <img src='https://d1rwvi4s5bian1.cloudfront.net/b86a92e1-37fb-44fe-b3fd-6e2c7428e491/img/career-advisers/placeholder.png' />
+                </Feed.Label>
                 <Feed.Content>
                     <Feed.Summary>
                         <a>{user.username}</a> posted on their page

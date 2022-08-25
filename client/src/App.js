@@ -15,8 +15,6 @@ function App() {
   const [users, setUsers] = useState(null)
   const [myCheeps, setMyCheeps] = useState([])
 
-
-
   useEffect(() => {
     fetch("/me")
     .then((r) => {
@@ -27,10 +25,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/users")
-    .then(res => res.json())
-    .then(user => setUsers(user))
-},[])
+    fetch('/users').then((r) => {
+      if (r.ok) {
+        r.json().then((cheeps) => setUsers(cheeps));
+      }}); 
+    }, [user])
 
   useEffect(() => {
     fetch('/myCheeps').then((r) => {
