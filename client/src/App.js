@@ -6,6 +6,7 @@ import SignIn from './SignIn';
 import { useState, useEffect} from 'react'
 import HomeFeed from './HomeFeed';
 import CreateCheep from './CreateCheep';
+import LogOut from './LogOut';
 
 
 
@@ -29,7 +30,7 @@ function App() {
     fetch("/users")
     .then(res => res.json())
     .then(user => setUsers(user))
-},[user])
+},[])
 
   useEffect(() => {
     fetch('/myCheeps').then((r) => {
@@ -39,23 +40,29 @@ function App() {
     }, [user])
 
 
-  if (!user) {
-    return (
-    <div className="App">
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/signup" element={<SignUp setUser={setUser}/>} />
-      <Route path="/signin" element={<SignIn setUser={setUser}/>} />
-    </Routes>
-  </div>
-  )
-  } 
+  // if (!user) {
+  //   return (
+  //   <div className="App">
+  //   <Routes>
+  //     <Route path="/" element={<Landing />} />
+  //     <Route path="/signup" element={<SignUp setUser={setUser}/>} />
+  //     <Route path="/signin" element={<SignIn setUser={setUser}/>} />
+  //   </Routes>
+  // </div>
+  // )
+  // } 
   return (
     <div className="App">
-       <CreateCheep setMyCheeps={setMyCheeps} myCheeps={myCheeps} />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/homefeed" element={<HomeFeed myCheeps={myCheeps} user={user} users={users}/>} />
+        <Route path="/homefeed" element={
+          <div>
+          <CreateCheep setMyCheeps={setMyCheeps} myCheeps={myCheeps} />
+          <HomeFeed myCheeps={myCheeps} user={user} users={users}/> 
+          <LogOut setUser={setUser} />
+        </div>} >
+          {/* <Route path="/homefeed/logout" element={ <LogOut/> } /> */}
+        </Route>
         <Route path="/signup" element={<SignUp setUser={setUser}/>} />
         <Route path="/signin" element={<SignIn setUser={setUser}/>} />
       </Routes>

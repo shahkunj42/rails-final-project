@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2022_08_22_183309) do
 
   create_table "cheeps", force: :cascade do |t|
     t.text "cheep"
-    t.integer "likes"
+    t.integer "likers_count", default: 0
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

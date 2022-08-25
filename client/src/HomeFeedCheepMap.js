@@ -1,6 +1,20 @@
 import { Feed, Icon } from 'semantic-ui-react'
+import { useState } from 'react'
 
 function HomeFeedCheepMap({cheep, user}) {
+    const [count, setCount] = useState(cheep.likers_count);
+
+    function handleLikes(){
+        // setCount((prevCount) => prevCount + 1);
+
+        fetch(`/cheeps/${cheep.id}`, {
+            method: 'PATCH', 
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(cheep.likers_count)
+        }).then(r => r.json())
+        .then(data => setCount(data.likers_count));
+    }
+    
 
     return (
         <Feed>
@@ -16,15 +30,12 @@ function HomeFeedCheepMap({cheep, user}) {
                     </Feed.Extra>
                 <Feed.Meta>
                     <Feed.Like>
-                        <Icon name='like' />{user.likes}
+                        <Icon onClick={handleLikes} name='like' />{count}
                     </Feed.Like>
                 </Feed.Meta>
             </Feed.Content>
         </Feed.Event>
         </Feed>
-            // <p>{user.username}</p>
-            // <img src={user.profile_image} alt="profile"></img>
-            // <p>{cheep.cheep}</p>
     )
 }
 

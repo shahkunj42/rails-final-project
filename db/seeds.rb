@@ -46,10 +46,10 @@ u4 = User.create(
     email: 'adrianamcgee@gmail.com'
 )
 
-10.times do
+20.times do
     Cheep.create(
         cheep: Faker::Quote.yoda,
-        likes: 0,
+        likers_count: 0,
         user_id: rand(1..4)
     )
 end 

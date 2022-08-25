@@ -9,6 +9,12 @@ class CheepsController < ApplicationController
         render json: cheep, status: :created 
     end
 
+    def update
+        cheep = Cheep.find(params[:id])
+        @current_user.toggle_like!(cheep)
+        render json: cheep, status: 202
+    end
+
     private 
 
     def cheep_params 

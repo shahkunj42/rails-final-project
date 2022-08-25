@@ -3,7 +3,7 @@ import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 
 
-function CreateCheep({newCheepBoat}) {
+function CreateCheep({setMyCheeps}) {
 
     const [formState, setFormState] = useState({})
 
@@ -13,7 +13,7 @@ function CreateCheep({newCheepBoat}) {
         e.preventDefault();
         const newFormObj = {
             cheep,
-            likes: 0
+            likers_count: 0
         }
         
         fetch("/cheeps", {
@@ -24,7 +24,7 @@ function CreateCheep({newCheepBoat}) {
             body: JSON.stringify(newFormObj),
         })
         .then((r) => r.json())
-        .then((data) => newCheepBoat(data))
+        .then((data) => setMyCheeps((prevState) => [...prevState, data]))
         navigate('/homefeed')
     }
     
