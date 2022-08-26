@@ -7,6 +7,10 @@ import { useState, useEffect} from 'react'
 import HomeFeed from './HomeFeed';
 import CreateCheep from './CreateCheep';
 import LogOut from './LogOut';
+import ProfilePage from './ProfilePage';
+import ProfilePageView from './ProfilePageView';
+import ProfilePageEdit from './ProfilePageEdit';
+import CreateCheepFromProfile from './CreateCheepFromProfile';
 
 
 
@@ -57,11 +61,18 @@ function App() {
         <Route path="/homefeed" element={
           <div>
           <CreateCheep setMyCheeps={setMyCheeps} myCheeps={myCheeps} />
+          <br></br>
+          <ProfilePage/>
           <HomeFeed myCheeps={myCheeps} user={user} users={users}/> 
           <LogOut setUser={setUser} />
         </div>} >
-          {/* <Route path="/homefeed/logout" element={ <LogOut/> } /> */}
         </Route>
+        <Route path='/profile' element={
+        <div>
+          <CreateCheepFromProfile setMyCheeps={setMyCheeps} myCheeps={myCheeps} />
+          <ProfilePageView setMyCheeps={setMyCheeps} myCheeps={myCheeps} user={user}/>
+        </div>} />
+        <Route path='/profile/edit' element={<ProfilePageEdit setUser={setUser} user={user}/>} />
         <Route path="/signup" element={<SignUp setUser={setUser}/>} />
         <Route path="/signin" element={<SignIn setUser={setUser}/>} />
       </Routes>

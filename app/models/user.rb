@@ -16,9 +16,11 @@ class User < ApplicationRecord
   (?=.*[[:^alnum:]]) # Must contain a symbol
 /x
 
-    validates :username, :password, :first_name, :last_name, :password_confirmation, presence: true
+    validates :username, :password, :first_name, :last_name, :password_confirmation, presence: true, on: :create
     validates :username, uniqueness: true
     validates :password, format: { with: PASSWORD_REQUIREMENTS }, on: :create 
+
+    validates :first_name, :last_name, :profile_image, :bio, presence: true, on: :update 
 
    
   # def feed

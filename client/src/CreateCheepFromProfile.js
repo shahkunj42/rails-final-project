@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import {Button} from 'semantic-ui-react'
 
 
-function CreateCheep({setMyCheeps}) {
+function CreateCheepFromProfile({setMyCheeps}) {
 
     const [formState, setFormState] = useState({})
 
@@ -26,7 +26,7 @@ function CreateCheep({setMyCheeps}) {
         })
         .then((r) => r.json())
         .then((data) => setMyCheeps((prevState) => [...prevState, data]))
-        .then(navigate('/homefeed'))
+        .then(navigate('/profile'))
     }
     
     const {cheep} = formState
@@ -50,4 +50,4 @@ function CreateCheep({setMyCheeps}) {
     )
 }
 
-export default CreateCheep;
+export default CreateCheepFromProfile;
