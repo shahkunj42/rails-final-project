@@ -35,6 +35,7 @@ function SignUp({setUser}) {
     
     const {username, password, profile_image, bio, first_name, last_name, email, password_confirmation} = formState
 
+    console.log(formState)
 
     function handleFormChange(e) {
         const {name, value} = e.target
@@ -57,8 +58,8 @@ function SignUp({setUser}) {
                 <input onChange={handleFormChange} type="text" id="last_name" name="last_name" ></input>
                 
                 <label htmlFor="profile_image">Image</label>
-                <input onChange={handleFormChange} type="text" id="profile_image" name="profile_image" ></input>
-
+                <input onChange={handleFormChange} placeholder="Image URL" type="text" id="profile_image" name="profile_image" ></input>
+            
                 <label htmlFor="email">Email</label>
                 <input onChange={handleFormChange} type="text" id="email" name="email" ></input>
 

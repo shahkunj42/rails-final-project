@@ -3,7 +3,7 @@ import HomeFeedCheepMap from "./HomeFeedCheepMap";
 function HomeFeedMap({cheep, users}) {
    
 if(!users) {
-    return(<h1></h1>)
+    return(<h1> </h1>)
  
 }
 else{

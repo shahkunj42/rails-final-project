@@ -33,17 +33,20 @@ function HomeFeedCheepMap({cheep, user}) {
         }
     }
 
+    const cheepTime = (cheep.created_at).toString().slice(5, 16)
+    const cheepTimeDate = cheepTime.slice(0,5)
+    const cheepTimeTime = cheepTime.slice(6)
 
     return (
         <Feed>
             <Feed.Event>
                 <Feed.Label>
-                <img src='https://d1rwvi4s5bian1.cloudfront.net/b86a92e1-37fb-44fe-b3fd-6e2c7428e491/img/career-advisers/placeholder.png' />
+                <img src={user.profile_image} alt="profile_image"/>
                 </Feed.Label>
                 <Feed.Content>
                     <Feed.Summary>
-                        <a>{user.username}</a> posted on their page
-                        <Feed.Date>3 days ago</Feed.Date>
+                        <p>{user.username}</p> posted on their page
+                        <Feed.Date>{`${cheepTimeDate} ${cheepTimeTime}`}</Feed.Date>
                     </Feed.Summary>
                     <Feed.Extra text>
                     {cheep.cheep}
