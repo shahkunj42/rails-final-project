@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/homefeed', to: 'users#feed'
   get '/myCheeps', to: 'users#myCheeps'
+  patch '/like/:id', to: 'cheeps#like'
+  patch '/unlike/:id', to: 'cheeps#unlike'
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

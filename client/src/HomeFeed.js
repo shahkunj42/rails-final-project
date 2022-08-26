@@ -34,14 +34,14 @@ function HomeFeed({user, users, myCheeps}) {
     const sorted = forSorting.sort((a,b) => a.id > b.id ? -1 : 1)
 
     const cheepDisplay = sorted.map((cheep) => {
-        return <HomeFeedMap cheep ={cheep} users={users} user={user}  />
+        return <HomeFeedMap key={cheep.id} cheep ={cheep} users={users} user={user}  />
     })  
   
 
     return (
         <div>
             <h1>Home</h1>
-            <p>{cheepDisplay}</p>
+            <div>{cheepDisplay}</div>
         </div>
     );
 }

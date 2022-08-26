@@ -3,16 +3,34 @@ import { useState } from 'react'
 
 function HomeFeedCheepMap({cheep, user}) {
     const [count, setCount] = useState(cheep.likers_count);
+    const [liked, setLiked] = useState(false)
 
     function handleLikes(){
         // setCount((prevCount) => prevCount + 1);
 
-        fetch(`/cheeps/${cheep.id}`, {
+
+        //setLiked(liked => !liked)
+        //console.log(count)
+        //console.log(liked)
+
+        if(!liked) {
+
+        fetch(`/like/${cheep.id}`, {
             method: 'PATCH', 
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(cheep.likers_count)
         }).then(r => r.json())
-        .then(data => setCount(data.likers_count));
+        .then(data => setCount(data))
+        .then(setLiked((liked) => (!liked)))
+        }else {
+            fetch(`/unlike/${cheep.id}`,{
+                method: 'PATCH', 
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(cheep.likers_count)
+            }).then(r => r.json())
+            .then(data => setCount(data))
+            .then(setLiked((liked) => (!liked)))
+        }
     }
 
 

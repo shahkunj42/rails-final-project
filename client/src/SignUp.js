@@ -30,7 +30,7 @@ function SignUp({setUser}) {
         })
         .then((r) => r.json())
         .then((data) => setUser(data))
-        navigate('/homefeed')
+        .then(navigate('/homefeed'))
     }
     
     const {username, password, profile_image, bio, first_name, last_name, email, password_confirmation} = formState

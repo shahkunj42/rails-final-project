@@ -9,10 +9,16 @@ class CheepsController < ApplicationController
         render json: cheep, status: :created 
     end
 
-    def update
+    def like
         cheep = Cheep.find(params[:id])
-        @current_user.toggle_like!(cheep)
-        render json: cheep, status: 202
+        @current_user.like!(cheep)
+        render json: cheep.likers_count += 1, status: 202
+    end
+
+    def unlike
+        cheep = Cheep.find(params[:id])
+        @current_user.unlike!(cheep)
+        render json: cheep.likers_count -= 1, status: 202
     end
 
     private 
