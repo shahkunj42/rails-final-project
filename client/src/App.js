@@ -11,6 +11,7 @@ import ProfilePage from './ProfilePage';
 import ProfilePageView from './ProfilePageView';
 import ProfilePageEdit from './ProfilePageEdit';
 import CreateCheepFromProfile from './CreateCheepFromProfile';
+import Explore from './Explore';
 
 
 
@@ -42,6 +43,13 @@ function App() {
       }}); 
     }, [user])
 
+    const onDeleteCheep = (id) => {
+      const cleanCheeps = myCheeps.filter(
+        (cheep) => cheep.id !== id
+      )
+      setMyCheeps(cleanCheeps);
+    }
+
 
   // if (!user) {
   //   return (
@@ -65,13 +73,13 @@ function App() {
           <ProfilePage/>
           <HomeFeed myCheeps={myCheeps} user={user} users={users}/> 
           <LogOut setUser={setUser} />
-        </div>} >
-        </Route>
+        </div>} />
         <Route path='/profile' element={
         <div>
           <CreateCheepFromProfile setMyCheeps={setMyCheeps} myCheeps={myCheeps} />
-          <ProfilePageView setMyCheeps={setMyCheeps} myCheeps={myCheeps} user={user}/>
+          <ProfilePageView onDeleteCheep={onDeleteCheep} setMyCheeps={setMyCheeps} myCheeps={myCheeps} user={user}/>
         </div>} />
+        <Route path="/explore" element={<Explore users={users} me={user} setUser={setUser}/>} />
         <Route path='/profile/edit' element={<ProfilePageEdit setUser={setUser} user={user}/>} />
         <Route path="/signup" element={<SignUp setUser={setUser}/>} />
         <Route path="/signin" element={<SignIn setUser={setUser}/>} />

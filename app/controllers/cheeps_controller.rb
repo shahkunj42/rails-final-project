@@ -21,6 +21,12 @@ class CheepsController < ApplicationController
         render json: cheep.likers_count -= 1, status: 202
     end
 
+    def destroy
+        cheep = Cheep.find(params[:id])
+        cheep.destroy
+        head :no_content
+    end
+
     private 
 
     def cheep_params 

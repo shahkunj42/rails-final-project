@@ -1,7 +1,8 @@
-import { Feed, Icon } from 'semantic-ui-react'
+import { Feed, Icon, Button } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
+import CheepView from './CheepView'
 
-function ProfilePageView({myCheeps, user}){
+function ProfilePageView({myCheeps, user, onDeleteCheep}){
 
     if(!user) {
         return(<h1> </h1>)
@@ -9,28 +10,9 @@ function ProfilePageView({myCheeps, user}){
     else{
 
     const cheepMap = myCheeps.map((cheep) => {
-        return (
-        <Feed key={cheep.id}>
-            <Feed.Event>
-                <Feed.Label>
-                <img src={user.profile_image} alt="profile_img"/>
-                </Feed.Label>
-                <Feed.Content>
-                    <Feed.Summary>
-                        <p>{user.username}</p> posted on their page
-                        <Feed.Date>3 days ago</Feed.Date>
-                    </Feed.Summary>
-                    <Feed.Extra text>
-                    {cheep.cheep}
-                    </Feed.Extra>
-                <Feed.Meta>
-                    <Feed.Like>
-                        <Icon name='like' />{cheep.likers_count}
-                    </Feed.Like>
-                </Feed.Meta>
-            </Feed.Content>
-        </Feed.Event>
-        </Feed>)
+        return ( 
+        <CheepView onDeleteCheep={onDeleteCheep} cheep={cheep} user={user} />
+        )
     })
 
     const sorted = cheepMap.reverse()
@@ -41,7 +23,7 @@ function ProfilePageView({myCheeps, user}){
             <p>{user.username}</p>
             <img src={user.profile_image} alt="profile_img"></img>
             <p>{user.bio}</p>
-            <NavLink to="/profile/edit" >Edit Profile</NavLink> | <NavLink to="/homefeed" >Home</NavLink>
+            <NavLink to="/profile/edit" >Edit Profile</NavLink> | <NavLink to="/homefeed" >Home</NavLink> | <NavLink to="/explore" >Explore</NavLink>
             <div>{sorted}</div>
         </div>
 

@@ -32,14 +32,25 @@ class UsersController < ApplicationController
         render json: user, status: 202
     end
 
+    def follow
+        u1 = User.find(params[:me][:id])
+        u2 = User.find(params[:you][:id])
+        u1.follow!(u2)
+        render json: u1, status: :ok
+    end
+
     private
 
     def update_params 
         params.permit(:profile_image, :bio, :first_name, :last_name) 
     end
+    
+    def follow_params
+        params.permit(me: [:id], you: [:id])
+    end
 
     def user_params
-        params.permit(:username, :password, :password_confirmation, :profile_image, :bio, :first_name, :last_name)
+        params.permit(:username, :password, :password_confirmation, :profile_image, :bio, :first_name, :last_name, :email)
     end
 
 end

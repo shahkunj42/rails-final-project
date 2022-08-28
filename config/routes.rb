@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/myCheeps', to: 'users#myCheeps'
   patch '/like/:id', to: 'cheeps#like'
   patch '/unlike/:id', to: 'cheeps#unlike'
+  post '/follow', to: 'users#follow'
   
 
   # Routing logic: fallback requests for React Router.
