@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import HomeFeedMap from "./HomeFeedMap";
 import { Header } from 'semantic-ui-react'
 
@@ -26,10 +26,10 @@ function HomeFeed({user, users, myCheeps}) {
         for (let i = 0; i < (homeFeedMap.length); i++) {
             cheepArray = cheepArray.concat(homeFeedMap[i])
         }
-    }else if (homeFeed.length !== 0 ){
+    } else if (homeFeed.length !== 0 ){
         cheepArray = homeFeedMap[0]
-    }else {
-        return (<div></div>)
+    } else {
+        return (cheepArray)
     }
 
     const forSorting = cheepArray.concat(myCheeps)

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Button, Container } from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -43,6 +43,7 @@ function SignIn ({setUser}) {
     return(
         <div>
             <h1>Sign In</h1>
+            <Container>
             <Form onSubmit={handleSubmit} className="form">
                 <label htmlFor="username">Username</label>
                 <input onChange={handleFormChange} type="text" id="username" placeholder="username" name="username" ></input>
@@ -53,6 +54,7 @@ function SignIn ({setUser}) {
                 <Button color='violet' type="submit">Signin</Button>
 
             </Form>
+            </Container>
 
             <p>{errors ? <h1>{errors}</h1> : null}</p>
         </div>

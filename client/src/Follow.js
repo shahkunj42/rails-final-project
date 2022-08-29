@@ -1,5 +1,5 @@
 import { Feed, Icon, Button } from 'semantic-ui-react';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Follow({user, me, setUser}) {
     let navigate = useNavigate();
