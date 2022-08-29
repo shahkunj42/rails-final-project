@@ -41,7 +41,6 @@ function CreateCheep({setMyCheeps}) {
         <div>
         <Container>
             <Form onSubmit={handleSubmit}>
-                <label htmlFor="cheep">Cheep</label>
                 <input onChange={handleFormChange} type="text" id="cheep" placeholder="What's on your mind?" name="cheep" ></input>
             <Button color='violet' type="submit" >Cheep</Button>
                 <br></br>
