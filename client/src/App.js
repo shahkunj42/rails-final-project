@@ -49,18 +49,6 @@ function App() {
       setMyCheeps(cleanCheeps);
     }
 
-
-  // if (!user) {
-  //   return (
-  //   <div className="App">
-  //   <Routes>
-  //     <Route path="/" element={<Landing />} />
-  //     <Route path="/signup" element={<SignUp setUser={setUser}/>} />
-  //     <Route path="/signin" element={<SignIn setUser={setUser}/>} />
-  //   </Routes>
-  // </div>
-  // )
-  // } 
   return (
     <div className="App">
       <img src="https://www.seekpng.com/png/full/111-1110814_bird-computer-icons-purple-clip-art-bird-clip.png" alt="cheep_icon" className="cheep_icon"></img>
