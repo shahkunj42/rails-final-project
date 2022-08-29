@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
     resources :replies
     resources :cheeps
     resources :users
@@ -13,8 +12,6 @@ Rails.application.routes.draw do
     patch '/like/:id', to: 'cheeps#like'
     patch '/unlike/:id', to: 'cheeps#unlike'
     post '/follow', to: 'users#follow'
-  end
-
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
