@@ -1,6 +1,6 @@
-import { Feed, Icon, Button } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
 import CheepView from './CheepView'
+import { Image, Header } from 'semantic-ui-react'
 
 function ProfilePageView({myCheeps, user, onDeleteCheep}){
 
@@ -19,11 +19,14 @@ function ProfilePageView({myCheeps, user, onDeleteCheep}){
 
     return(
         <div>
-            <p>{user.first_name} {user.last_name}</p>
-            <p>{user.username}</p>
-            <img src={user.profile_image} alt="profile_img"></img>
-            <p>{user.bio}</p>
+            <Header as='h3'>{user.first_name} {user.last_name}</Header>
+            <Header as='h4'>@{user.username}</Header>
+            <Image src={user.profile_image} alt="profile_img" size='small' circular centered></Image>
+            <Header as='h5'>{user.bio}</Header>
             <NavLink to="/profile/edit" >Edit Profile</NavLink> | <NavLink to="/homefeed" >Home</NavLink> | <NavLink to="/explore" >Explore</NavLink>
+            <br></br>
+            <br></br>
+            <br></br>
             <div>{sorted}</div>
         </div>
 

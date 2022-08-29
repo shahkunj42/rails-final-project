@@ -1,4 +1,4 @@
-import { Form } from 'semantic-ui-react'
+import { Form, Container } from 'semantic-ui-react'
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Button} from 'semantic-ui-react'
@@ -39,13 +39,14 @@ function CreateCheep({setMyCheeps}) {
 
     return(
         <div>
+        <Container>
             <Form onSubmit={handleSubmit}>
                 <label htmlFor="cheep">Cheep</label>
                 <input onChange={handleFormChange} type="text" id="cheep" placeholder="What's on your mind?" name="cheep" ></input>
-
-        
-                <Button type="submit" >Cheep!!!!!!!!!</Button>
+            <Button color='violet' type="submit" >Cheep</Button>
+                <br></br>
             </Form>
+        </Container>
         </div>
     )
 }

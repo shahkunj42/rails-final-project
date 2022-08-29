@@ -1,6 +1,6 @@
- import { Form } from 'semantic-ui-react'
-import {useNavigate} from "react-router-dom";
-import {useState } from "react"
+import { Form, Button } from 'semantic-ui-react'
+import { useNavigate } from "react-router-dom";
+import { useState } from "react"
 
 function ProfilePageEdit ({user, setUser}){
     const [formState, setFormState] = useState({})
@@ -59,7 +59,7 @@ function ProfilePageEdit ({user, setUser}){
                 <label htmlFor="bio">Bio</label>
                 <input onChange={handleFormChange} type="text" id="bio" name="bio" placeholder={user.bio}></input>
 
-                <button type="submit">Submit</button>
+                <Button color='violet' type="submit">Submit</Button>
 
                 </Form>
 

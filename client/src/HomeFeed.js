@@ -40,8 +40,7 @@ function HomeFeed({user, users, myCheeps}) {
 
     const cheepDisplay = sorted.map((cheep) => {
         return <HomeFeedMap key={cheep.id} cheep ={cheep} users={users} user={user}  />
-    })  
-  
+    })
 
     return (
         <div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -50,7 +50,7 @@ function SignIn ({setUser}) {
                 <label htmlFor="password">Password</label>
                 <input onChange={handleFormChange} type="password" id="password" placeholder="password" name="password" ></input>
 
-                <button type="submit">Signin</button>
+                <Button color='violet' type="submit">Signin</Button>
 
             </Form>
 

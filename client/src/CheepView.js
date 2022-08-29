@@ -1,4 +1,4 @@
-import { Feed, Icon, Button } from 'semantic-ui-react'
+import { Feed, Icon, Button, Image } from 'semantic-ui-react'
 
 function CheepView({cheep, user, onDeleteCheep}) {
 
@@ -10,30 +10,38 @@ function CheepView({cheep, user, onDeleteCheep}) {
         onDeleteCheep(cheep.id)
     }
 
+    const cheepTime = (cheep.created_at).toString().slice(5, 16)
+    const cheepTimeDate = cheepTime.slice(0,5)
+    const cheepTimeTime = cheepTime.slice(6)
+
     return(
         <div>
         <Feed key={cheep.id}>
             <Feed.Event>
                 <Feed.Label>
-                <img src={user.profile_image} alt="profile_img"/>
+                <Image src={user.profile_image} alt="profile_img" />
                 </Feed.Label>
                 <Feed.Content>
                     <Feed.Summary>
-                        <p>{user.username}</p> posted on their page
-                        <Feed.Date>3 days ago</Feed.Date>
+                    <span >{`${user.first_name} ${user.last_name}`}</span><i className="username"> {user.username}</i>
+                        <Feed.Date>{`${cheepTimeDate} ${cheepTimeTime}`}</Feed.Date>
                     </Feed.Summary>
                     <Feed.Extra text>
                     {cheep.cheep}
                     </Feed.Extra>
                 <Feed.Meta>
                     <Feed.Like>
+                        <Button className="trash_button" onClick={clickHandle} icon>
+                        <Icon color="violet" className="trash_button" size='small' name='trash'/>
+                        </Button>
                         <Icon name='like' />{cheep.likers_count}
                     </Feed.Like>
                 </Feed.Meta>
             </Feed.Content>
         </Feed.Event>
         </Feed>
-        <Button onClick={clickHandle}>Delete Cheep</Button>
+        <br></br>
+
         </div>
     )
 }

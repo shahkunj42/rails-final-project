@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import { Form } from 'semantic-ui-react'
-import {useNavigate} from "react-router-dom";
+import React, { useState } from "react";
+import { Form, Button } from 'semantic-ui-react'
+import { useNavigate } from "react-router-dom";
 
 
 function SignUp({setUser}) {
@@ -72,7 +72,7 @@ function SignUp({setUser}) {
                 <label htmlFor="bio">Bio</label>
                 <input onChange={handleFormChange} type="text" id="bio" name="bio" ></input>
 
-                <button type="submit">Submit</button>
+                <Button color='violet' type="submit">Submit</Button>
 
                 </Form>
 

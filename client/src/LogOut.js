@@ -1,4 +1,5 @@
 import {useNavigate} from 'react-router-dom';
+import { Button } from 'semantic-ui-react'
 
 function LogOut({setUser}){
 
@@ -17,7 +18,7 @@ function LogOut({setUser}){
 
     return(
         <div>
-            <button onClick={handleLogOut} >Log Out</button>
+            <Button color='violet' onClick={handleLogOut} >Log Out</Button>
         </div>
     )
 }

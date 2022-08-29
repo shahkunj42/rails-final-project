@@ -1,4 +1,5 @@
-import { Feed, Icon } from 'semantic-ui-react'
+import './App.css';
+import { Feed, Icon, Container } from 'semantic-ui-react'
 import { useState } from 'react'
 
 function HomeFeedCheepMap({cheep, user}) {
@@ -38,6 +39,7 @@ function HomeFeedCheepMap({cheep, user}) {
     const cheepTimeTime = cheepTime.slice(6)
 
     return (
+    <Container>
         <Feed>
             <Feed.Event>
                 <Feed.Label>
@@ -45,7 +47,7 @@ function HomeFeedCheepMap({cheep, user}) {
                 </Feed.Label>
                 <Feed.Content>
                     <Feed.Summary>
-                        <p>{user.username}</p> posted on their page
+                        <span >{`${user.first_name} ${user.last_name}`}</span><i className="username"> {user.username}</i>
                         <Feed.Date>{`${cheepTimeDate} ${cheepTimeTime}`}</Feed.Date>
                     </Feed.Summary>
                     <Feed.Extra text>
@@ -59,6 +61,7 @@ function HomeFeedCheepMap({cheep, user}) {
             </Feed.Content>
         </Feed.Event>
         </Feed>
+    </Container>
     )
 }
 

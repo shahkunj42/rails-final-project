@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom'
-import { Button, Grid } from 'semantic-ui-react'
+import { Button, Grid, Header } from 'semantic-ui-react'
 
 function Landing() {
     return(
-        <div>
-            <h1>Welcome to Cheep</h1>
+        <div className="landing">
+            <Header size='huge'>Welcome to Cheep</Header>
+            <br></br>
             <Grid columns={2} centered={true}>
                 <Grid.Row>
                     <Grid.Column width={5}>
-                        <Button fluid as={Link} to="/signup">Sign Up</Button>
+                        <Button color='violet' fluid as={Link} to="/signup">Sign Up</Button>
                     </Grid.Column>
                     <Grid.Column width={5}>
-                        <Button fluid as={Link} to="/signin">Sign In</Button>
+                        <Button color='violet' fluid as={Link} to="/signin">Sign In</Button>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
