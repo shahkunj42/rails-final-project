@@ -21,7 +21,7 @@ function SignUp({setUser}) {
             password_confirmation
         }
         
-        fetch("/signup", {
+        fetch("/newaccount", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

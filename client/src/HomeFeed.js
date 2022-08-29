@@ -6,7 +6,7 @@ function HomeFeed({user, users, myCheeps}) {
     const [homeFeed, setHomeFeed] = useState([])
 
     useEffect(() => {
-        fetch("/homefeed")
+        fetch("/feed")
         .then((r) => {
             if (r.ok) {
             r.json().then((user) => setHomeFeed(user));

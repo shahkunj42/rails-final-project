@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   resources :cheeps
   resources :users
 
-  post '/signup', to: 'users#create'
+  post '/newaccount', to: 'users#create'
   get '/me', to: 'users#show'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/homefeed', to: 'users#feed'
+  get '/feed', to: 'users#feed'
   get '/myCheeps', to: 'users#myCheeps'
   patch '/like/:id', to: 'cheeps#like'
   patch '/unlike/:id', to: 'cheeps#unlike'
