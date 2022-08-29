@@ -39,7 +39,7 @@ function Explore ({users, me, setUser}) {
                 <Container>
                 <Form onSubmit={handleSubmit}>
 
-                <label htmlFor="username">Search for Your Friends Username!</label>
+                <label htmlFor="username">Search for Your Friend's Username!</label>
                 <input onChange={handleFormChange} type="text" id="username" name="username" placeholder='asmokeandapancake' ></input>
 
                 <br></br>

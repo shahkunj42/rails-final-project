@@ -7,13 +7,7 @@ function HomeFeedCheepMap({cheep, user}) {
     const [liked, setLiked] = useState(false)
 
     function handleLikes(){
-        // setCount((prevCount) => prevCount + 1);
-
-
-        //setLiked(liked => !liked)
-        //console.log(count)
-        //console.log(liked)
-
+  
         if(!liked) {
 
         fetch(`/like/${cheep.id}`, {

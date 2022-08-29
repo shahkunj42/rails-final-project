@@ -19,7 +19,7 @@ function CheepView({cheep, user, onDeleteCheep}) {
         <Feed key={cheep.id}>
             <Feed.Event>
                 <Feed.Label>
-                <Image src={user.profile_image} alt="profile_img" />
+                <Image src={user.profile_image} alt="profile_img" size='medium' circular/>
                 </Feed.Label>
                 <Feed.Content>
                     <Feed.Summary>

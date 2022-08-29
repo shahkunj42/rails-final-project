@@ -41,8 +41,6 @@ function CreateCheepFromProfile({setMyCheeps}) {
             <Container>
             <Form onSubmit={handleSubmit}>
                 <input onChange={handleFormChange} type="text" id="cheep" placeholder="What's on your mind?" name="cheep" ></input>
-
-        
                 <Button color='violet' type="submit" >Cheep</Button>
             </Form>
             </Container>

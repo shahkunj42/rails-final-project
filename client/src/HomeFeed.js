@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
 import HomeFeedMap from "./HomeFeedMap";
+import { Header } from 'semantic-ui-react'
 
 function HomeFeed({user, users, myCheeps}) {
     const [homeFeed, setHomeFeed] = useState([])
@@ -44,7 +45,7 @@ function HomeFeed({user, users, myCheeps}) {
 
     return (
         <div>
-            <h1>Home</h1>
+            <Header as='h1'>Home</Header>
             <div>{cheepDisplay}</div>
         </div>
     );

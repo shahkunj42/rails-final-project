@@ -1,18 +1,17 @@
 import './App.css';
 import SignUp from './SignUp';
 import Landing from './Landing';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import SignIn from './SignIn';
 import { useState, useEffect} from 'react'
 import HomeFeed from './HomeFeed';
 import CreateCheep from './CreateCheep';
 import LogOut from './LogOut';
-import ProfilePage from './ProfilePage';
 import ProfilePageView from './ProfilePageView';
 import ProfilePageEdit from './ProfilePageEdit';
 import CreateCheepFromProfile from './CreateCheepFromProfile';
 import Explore from './Explore';
-
+import SidebarComponent from './SidebarComponent';
 
 
 function App() {
@@ -67,20 +66,29 @@ function App() {
       <img src="https://www.seekpng.com/png/full/111-1110814_bird-computer-icons-purple-clip-art-bird-clip.png" alt="cheep_icon" className="cheep_icon"></img>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/homefeed" element={
-          <div>
-          <CreateCheep setMyCheeps={setMyCheeps} myCheeps={myCheeps} />
-          <br></br>
-          <ProfilePage/>
-          <HomeFeed myCheeps={myCheeps} user={user} users={users}/> 
-          <LogOut setUser={setUser} />
-        </div>} />
+        <Route 
+          path="/homefeed" 
+          element={
+            <SidebarComponent>
+              <CreateCheep setMyCheeps={setMyCheeps} myCheeps={myCheeps} />
+              <br></br>
+              <HomeFeed myCheeps={myCheeps} user={user} users={users}/> 
+              <LogOut setUser={setUser} />
+            </SidebarComponent>
+          } 
+        />
+  
         <Route path='/profile' element={
-        <div>
-          <CreateCheepFromProfile setMyCheeps={setMyCheeps} myCheeps={myCheeps} />
-          <ProfilePageView onDeleteCheep={onDeleteCheep} setMyCheeps={setMyCheeps} myCheeps={myCheeps} user={user}/>
-        </div>} />
-        <Route path="/explore" element={<Explore users={users} me={user} setUser={setUser}/>} />
+          <SidebarComponent>
+            <CreateCheepFromProfile setMyCheeps={setMyCheeps} myCheeps={myCheeps} />
+            <ProfilePageView onDeleteCheep={onDeleteCheep} setMyCheeps={setMyCheeps} myCheeps={myCheeps} user={user}/>
+          </SidebarComponent>}
+        />
+        <Route path="/explore" element={
+          <SidebarComponent>
+            <Explore users={users} me={user} setUser={setUser}/>
+          </SidebarComponent>}
+        />
         <Route path='/profile/edit' element={<ProfilePageEdit setUser={setUser} user={user}/>} />
         <Route path="/signup" element={<SignUp setUser={setUser}/>} />
         <Route path="/signin" element={<SignIn setUser={setUser}/>} />

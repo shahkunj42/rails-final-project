@@ -23,7 +23,7 @@ function ProfilePageView({myCheeps, user, onDeleteCheep}){
             <Header as='h4'>@{user.username}</Header>
             <Image src={user.profile_image} alt="profile_img" size='small' circular centered></Image>
             <Header as='h5'>{user.bio}</Header>
-            <NavLink to="/profile/edit" >Edit Profile</NavLink> | <NavLink to="/homefeed" >Home</NavLink> | <NavLink to="/explore" >Explore</NavLink>
+            <NavLink to="/profile/edit" >Edit Profile</NavLink>
             <br></br>
             <br></br>
             <br></br>
