@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Button, Container } from 'semantic-ui-react'
 import { useNavigate } from "react-router-dom";
 
 
@@ -35,8 +35,6 @@ function SignUp({setUser}) {
     
     const {username, password, profile_image, bio, first_name, last_name, email, password_confirmation} = formState
 
-    console.log(formState)
-
     function handleFormChange(e) {
         const {name, value} = e.target
         setFormState((prevState) => ({...prevState, [name]:value}))
@@ -45,6 +43,8 @@ function SignUp({setUser}) {
     return(
         <div>
             <h1>Create an Account</h1>
+
+            <Container>
             
             <Form onSubmit={handleSubmit}>
 
@@ -63,19 +63,32 @@ function SignUp({setUser}) {
                 <label htmlFor="email">Email</label>
                 <input onChange={handleFormChange} type="text" id="email" name="email" ></input>
 
+                <label htmlFor="bio">Bio</label>
+                <input onChange={handleFormChange} type="text" id="bio" name="bio" ></input>
+
+                <div>
+                    <br></br>
+                    <p className="password">Please choose a password with at least</p>
+                        <ul className="password_list">
+                            <li>8 characters</li>
+                            <li>1 capitalized letter</li>
+                            <li>1 number</li>
+                            <li>1 special character</li>
+                        </ul>
+                </div>
+
                 <label htmlFor="password">Password</label>
                 <input onChange={handleFormChange} type="password" id="password" name="password" ></input>
                 
                 <label htmlFor="password_confirmation">Password Confirmation</label>
                 <input onChange={handleFormChange} type="password" id="password_confirmation" name="password_confirmation"></input>
 
-                <label htmlFor="bio">Bio</label>
-                <input onChange={handleFormChange} type="text" id="bio" name="bio" ></input>
 
                 <Button color='violet' type="submit">Submit</Button>
 
                 </Form>
 
+                </Container>
         </div>
     );
 }

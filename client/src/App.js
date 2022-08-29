@@ -1,7 +1,7 @@
 import './App.css';
 import SignUp from './SignUp';
 import Landing from './Landing';
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import SignIn from './SignIn';
 import { useState, useEffect} from 'react'
 import HomeFeed from './HomeFeed';

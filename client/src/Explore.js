@@ -17,7 +17,6 @@ function Explore ({users, me, setUser}) {
     function handleSubmit(e) {
         e.preventDefault();
         const search = users.filter((user) => user.username.includes(formState.username))
-        console.log(search)
     if (search.length > 0 ) {
             setFoundFriend(search)
     } else {
@@ -26,10 +25,6 @@ function Explore ({users, me, setUser}) {
             
         }
     }
-    console.log(foundFriend)
-
-
-
 
     return (
         <div>

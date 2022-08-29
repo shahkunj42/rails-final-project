@@ -18,6 +18,11 @@
   margin-left: 20%;
 }
 
+.password_list {
+    display: inline-block;
+    text-align:left;
+}
+
 .App {
   text-align: center;
 }

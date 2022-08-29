@@ -1,7 +1,6 @@
-import { Form, Container } from 'semantic-ui-react'
-import {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
-import {Button} from 'semantic-ui-react'
+import { Form, Container, Button } from 'semantic-ui-react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 function CreateCheep({setMyCheeps}) {

@@ -21,15 +21,12 @@ function HomeFeed({user, users, myCheeps}) {
 
     
     let cheepArray = []
-    console.log(cheepArray.length)
 
     if (homeFeedMap.length > 1) {
-        console.log("Bong")
         for (let i = 0; i < (homeFeedMap.length); i++) {
             cheepArray = cheepArray.concat(homeFeedMap[i])
         }
     }else if (homeFeed.length !== 0 ){
-        console.log("Bing")
         cheepArray = homeFeedMap[0]
     }else {
         return (<div></div>)
